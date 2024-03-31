@@ -23,3 +23,8 @@ kubectl delete deployment deploymentname #for deleting deployment
 kubectl delete service servicename #for deleting service
 
 kubectl get pod podname -o=jsonpath='{range .status.containerStatuses[*]}{.name}: {.state}\n{end}' #to check extra details of pod with multiple containers
+
+
+kubectl edit pod podname
+
+kubectl run nginx --image=nginx --dry-run=client -o yaml #will create a yaml for your deployment
