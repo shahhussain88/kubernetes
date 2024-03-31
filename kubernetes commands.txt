@@ -1,4 +1,4 @@
-kubectl get all #show everything in default namespace
+ kubectl get all #show everything in default namespace
 
 kubectl get nodes #list the nodes in Kubernetes
 
@@ -26,6 +26,7 @@ kubectl get pod podname -o=jsonpath='{range .status.containerStatuses[*]}{.name}
 
 
 kubectl edit pod podname
+kubectl get rs
 kubectl edit replicaset replicasetname
 kubectl explain replicaset
 kubectl run nginx --image=nginx --dry-run=client -o yaml #will create a yaml for your deployment
