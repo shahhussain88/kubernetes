@@ -31,6 +31,8 @@ kubectl edit replicaset replicasetname
 kubectl explain replicaset
 kubectl run nginx --image=nginx --dry-run=client -o yaml #will create a yaml for your deployment
 
+kubectl create deployment deploymentname --image=imagename --replicas=3 #to create a deployment in kubernetes
+
 kubectl replace -f deployment.yaml #to update without deleting
 
 kubectl scale --replicas=6 -f deployment.yaml #to iincrease replicas  n one command
