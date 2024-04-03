@@ -1,4 +1,8 @@
- kubectl get all #show everything in default namespace
+#some docker commands
+docker build -t imagename .
+
+
+kubectl get all #show everything in default namespace
 
 kubectl get nodes #list the nodes in Kubernetes
 
@@ -40,3 +44,7 @@ kubectl replace -f deployment.yaml #to update without deleting
 
 kubectl scale --replicas=6 -f deployment.yaml #to iincrease replicas  n one command
 kubectl scale --replicas=6 replicaser replicasetname # another way to do it
+
+
+#configmaps
+kubectl create cm configmapname --from-literal=APP_COLOR=darkblue
