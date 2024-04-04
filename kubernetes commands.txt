@@ -45,6 +45,8 @@ kubectl replace -f deployment.yaml #to update without deleting
 kubectl scale --replicas=6 -f deployment.yaml #to iincrease replicas  n one command
 kubectl scale --replicas=6 replicaser replicasetname # another way to do it
 
+kubectl replace --force -f filepath.yml
 
 #configmaps
 kubectl create cm configmapname --from-literal=APP_COLOR=darkblue
+kubectl create secret generic db-secret --from-literal=DB_Host=sql01 --from-literal=DB_User=root --from-literal=DB_Password=password123
