@@ -50,3 +50,8 @@ kubectl replace --force -f filepath.yml
 #configmaps
 kubectl create cm configmapname --from-literal=APP_COLOR=darkblue
 kubectl create secret generic db-secret --from-literal=DB_Host=sql01 --from-literal=DB_User=root --from-literal=DB_Password=password123
+
+
+kubectl label node/pod node/podname color=blue
+
+kubectl exec -it podname -- ls -l
