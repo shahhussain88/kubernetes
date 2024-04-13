@@ -55,3 +55,4 @@ kubectl create secret generic db-secret --from-literal=DB_Host=sql01 --from-lite
 kubectl label node/pod node/podname color=blue
 
 kubectl exec -it podname -- ls -l
+kubectl exec -it podname /bin/bash
