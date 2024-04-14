@@ -56,3 +56,11 @@ kubectl label node/pod node/podname color=blue
 
 kubectl exec -it podname -- ls -l
 kubectl exec -it podname /bin/bash
+
+
+#get all pods in a single yaml file
+kubectl get pods -o yaml > webapp.yaml
+
+#check node processing status
+kubectl top node
+kubectl top pod
