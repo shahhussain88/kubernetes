@@ -64,3 +64,6 @@ kubectl get pods -o yaml > webapp.yaml
 #check node processing status
 kubectl top node
 kubectl top pod
+
+#kill container inside a pod with multiple containers 
+kubectl exec POD_NAME -c CONTAINER_NAME /sbin/killall5
