@@ -67,3 +67,11 @@ kubectl top pod
 
 #kill container inside a pod with multiple containers 
 kubectl exec POD_NAME -c CONTAINER_NAME /sbin/killall5
+
+
+
+######################rollback deployment command##########################
+k rollout undo deployment deploymentname
+
+k rollout status deployment deployment-name #to check deployment rollout process
+k rollout history deployment deploymentame
