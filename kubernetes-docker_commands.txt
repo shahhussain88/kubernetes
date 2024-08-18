@@ -1,17 +1,27 @@
 #some docker commands
 docker build -t imagename .
 docker ps 
-docker ps -a
+docker ps -a (all containers stopped-running) 
 docker build --tag nameset .
 docker logs container id
 docker create imagename commandname
 docker start containerid
 docker stop containerid
 docker kill containerid
+docker rm containerid (remove/delete the container)
+docker rm -f containerid 
 docker exec -it containerid redis-cli
 docker exec -it containerid sh
 docker run -it busybox sh
+docker cp containerid:path path_at_your_own_machine
+docker commit 1f121344 shah/nginx:6.7
+docker commit containerid name_you_want_to_set:version(create an image with your changes in  it)
 docker exec -it -u root jenkins /bin/bash (start container bash as root)
+
+docker system prune (will remove all stopped containers
+dangling images
+dangling build
+all networks which are not being used)
 
 sudo docker inspect -f "{{ .NetworkSettings.IPAddress }}" container_name (get ip of a container)
 
@@ -39,7 +49,7 @@ cat /etc/group
 
 netstat -plant |grep :22
 
-
+docker run buildimage cat /etc/os-relase (build image is created using dockerfile)
 docker exec -u 0 -it 47ad6ada92a932a81354c20b529f53cd1550335cbb810ade5ffe6b76f9d63833 /bin/bash
 kubectl exec -it pod/graylog-5d478b44c7-4gdn6 bash
 
