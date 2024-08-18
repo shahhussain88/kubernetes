@@ -1,6 +1,51 @@
 #some docker commands
 docker build -t imagename .
+docker ps 
+docker ps -a
+docker build --tag nameset .
+docker logs container id
+docker create imagename commandname
+docker start containerid
+docker stop containerid
+docker kill containerid
+docker exec -it containerid redis-cli
+docker exec -it containerid sh
+docker run -it busybox sh
+docker exec -it -u root jenkins /bin/bash (start container bash as root)
 
+sudo docker inspect -f "{{ .NetworkSettings.IPAddress }}" container_name (get ip of a container)
+
+docker run -it -p 2200:22 imagename (start docker as root and change password for root and later start as root using exec coommand)
+docker run -p 8080:80 -p 3000:3000 -p 5432:5432 my_docker_image (For multiple ports)
+adduser username
+adduser username sudo (give priviliges)
+
+install open-ssh for ssh service and start the service
+after that you can ssh into your docker container.
+
+
+ssh-keygen
+service --status-all
+service ssh start
+#ssh-copy-id -i /root/.ssh/id_rsa.pub root@172.17.0.2
+ssh-copy-id root@172.17.0.2
+
+jenkins 172.17.0.3
+
+cat /etc/group
+
+
+/etc/init.d/ssh status
+
+netstat -plant |grep :22
+
+
+docker exec -u 0 -it 47ad6ada92a932a81354c20b529f53cd1550335cbb810ade5ffe6b76f9d63833 /bin/bash
+kubectl exec -it pod/graylog-5d478b44c7-4gdn6 bash
+
+
+--------------------------------------------------------------------------------------
+kubernetes command
 
 kubectl get all #show everything in default namespace
 
