@@ -3,6 +3,7 @@ docker build -t imagename .
 docker ps 
 docker ps -a (all containers stopped-running) 
 docker build --tag nameset .
+docker build -t name --build-arg version=$variable .
 docker logs container id
 docker create imagename commandname
 docker start containerid
@@ -52,6 +53,41 @@ netstat -plant |grep :22
 docker run buildimage cat /etc/os-relase (build image is created using dockerfile)
 docker exec -u 0 -it 47ad6ada92a932a81354c20b529f53cd1550335cbb810ade5ffe6b76f9d63833 /bin/bash
 kubectl exec -it pod/graylog-5d478b44c7-4gdn6 bash
+
+
+--------------------------------------------------------------------------------------
+
+commands inside Dockerfile
+
+
+FROM create build from a base image
+
+LABEL add metadata to the image
+
+Maintainer specify the auther of an image
+
+EXPOSE describe which port will be open
+
+ENV set env variable
+
+ARG get the argument passed in the build command
+
+ADD add files or directory during build
+
+COPY copy files into build image from local enviornment (CAN cOPY FROM A URL ASWELL)
+
+ENTRYPOINT default executable
+
+CMD specify default command
+
+RUN execute build commands
+
+USER set user and group ID
+
+WORKDIR set working directory
+
+VOLUME create volume mount
+
 
 
 --------------------------------------------------------------------------------------
