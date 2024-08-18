@@ -72,6 +72,8 @@ ENV set env variable
 
 ARG get the argument passed in the build command
 
+SHELL will set shell to powershell for the next commands
+
 ADD add files or directory during build
 
 COPY copy files into build image from local enviornment (CAN cOPY FROM A URL ASWELL)
