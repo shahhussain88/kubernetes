@@ -1,0 +1,25 @@
+Ports architecture
+
+
+HTTP 80
+
+HTTPS 443
+
+TELNET 23
+
+STMP 25
+
+Ping goes for the IP address
+
+IMAP 143
+
+FTP 20,21
+
+RDP 3389
+
+SSH 22
+
+POP3 110
+
+DNS 53
+
