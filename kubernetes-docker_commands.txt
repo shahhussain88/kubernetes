@@ -19,6 +19,11 @@ docker cp containerid:path path_at_your_own_machine
 docker commit 1f121344 shah/nginx:6.7
 docker commit containerid name_you_want_to_set:version(create an image with your changes in  it)
 docker exec -it -u root jenkins /bin/bash (start container bash as root)
+-----------------------------------------------------
+docker command to map volume with a container
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app dockerimageid    note:node_modules are dependencies
+
+-----------------------------------------------------
 
 docker system prune (will remove all stopped containers
 dangling images
