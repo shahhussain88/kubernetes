@@ -1,5 +1,6 @@
 #some docker commands
 docker build -t imagename .
+docker build -f custome_filename .
 docker ps 
 docker ps -a (all containers stopped-running) 
 docker build --tag nameset .
