@@ -6,6 +6,8 @@ printf "my super secret password" | docker secret create my_secret - (will keep 
 docker secret create my_secret ./secret.json (will create secret of that file)
 docker network create –subnet=172.18.0.0/16 mynet123 (create a cutome network for a container)
 docker run –net mynet123 –ip 172.18.0.22 -it ubuntu bash (attach that network and ip of it to a container)
+docker run -m 512m (limit memory of a container)
+
 
 docker build -t imagename .
 docker build -f custome_filename .
