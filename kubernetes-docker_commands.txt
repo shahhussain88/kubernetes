@@ -1,4 +1,7 @@
 #some docker commands
+#json-file is the default logging driver in docker
+
+
 docker build -t imagename .
 docker build -f custome_filename .
 docker ps 
