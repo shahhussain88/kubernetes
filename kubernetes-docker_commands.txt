@@ -1,6 +1,11 @@
 #some docker commands
 #json-file is the default logging driver in docker
 
+#create secret in docker
+printf "my super secret password" | docker secret create my_secret - (will keep that msg as secret)
+docker secret create my_secret ./secret.json (will create secret of that file)
+docker network create –subnet=172.18.0.0/16 mynet123 (create a cutome network for a container)
+docker run –net mynet123 –ip 172.18.0.22 -it ubuntu bash (attach that network and ip of it to a container)
 
 docker build -t imagename .
 docker build -f custome_filename .
