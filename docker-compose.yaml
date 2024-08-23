@@ -1,3 +1,4 @@
+#docker-compose up --build (--build command is for rebuilding images/latest changes)
 #for a single container
 version: '3'
 services:
