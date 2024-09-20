@@ -1,0 +1,58 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-01
+  annotations:
+  #   #alb.networking.azure.io/alb-name: alb-test
+  #   #alb.networking.azure.io/alb-namespace: alb-test-infra
+    alb.networking.azure.io/alb-id: '/subscriptions/340f9fe4-89c3-48fa-9e10-bf2ef657e272/resourcegroups/tsudev-rg/providers/Microsoft.ServiceNetworking/trafficControllers/tsudev-agfc-alb'
+    alb.networking.azure.io/alb-frontend: 'test-frontend'
+    #alb.networking.azure.io/alb-ingress-extension: url-rewrite
+    #alb.networking.azure.io/backend-path-prefix: "/"
+    #alb.networking.azure.io/rewrite-target: /
+    #alb.networking.azure.io/backend-path-prefix: "/"
+    #appgw.ingress.kubernetes.io/health-probe-path: /v1/swagger-ui/index.html
+    #appgw.ingress.kubernetes.io/health-probe-status-codes: 200-399, 401
+spec:
+  ingressClassName: azure-alb-external
+  rules:
+  - host: dtfjazc7engsdmf3.fz22.alb.azure.com  # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: testdevopssvc # Service name for /app1
+            port:
+              number: 80
+      
+  # ingressClassName: azure-alb-external
+  # rules:
+  #   - http:
+  #       paths:
+  #         # - path: /email-svc
+  #         #   pathType: Prefix
+  #         #   backend:
+  #         #     service:
+  #         #       name: email-svc  
+  #         #       port:
+  #         #         number: 80     
+  #         # - path: /nginx-svc  
+  #         #   pathType: Prefix
+  #         #   backend:
+  #         #     service:
+  #         #       name: nginx-svc  
+  #         #       port:
+  #         #         number: 80
+  #         - path: "/"  
+  #           pathType: Prefix
+  #           backend:
+  #             service:
+  #               name: email-svc
+  #               port:
+  #                 number: 80    
+#RESOURCE_NAME='tsudev-agfc-alb'
+#FRONTEND_NAME='test-frontend'
+#RESOURCE_ID='/subscriptions/340f9fe4-89c3-48fa-9e10-bf2ef657e272/resourcegroups/tsudev-rg/providers/Microsoft.ServiceNetworking/trafficControllers/tsudev-agfc-alb'
+#RESOURCE_GROUP='tsudev-rg'

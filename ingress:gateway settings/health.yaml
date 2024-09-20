@@ -1,0 +1,23 @@
+apiVersion: alb.networking.azure.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: gateway-health-check-policy
+spec:
+  targetRef:
+    group: ""
+    kind: Service
+    name: emailsvc
+  default:
+    interval: 5s
+    timeout: 3s
+    healthyThreshold: 1
+    unhealthyThreshold: 1
+    protocol: HTTP
+    port: 8007
+    http:
+      host: dtfjazc7engsdmf3.fz22.alb.azure.com
+      path: /v1/swagger-ui/index.html
+      match:
+        statusCodes: 
+        - start: 200
+          end: 299

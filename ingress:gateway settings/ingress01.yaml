@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    alb.networking.azure.io/alb-id: '/subscriptions/340f9fe4-89c3-48fa-9e10-bf2ef657e272/resourcegroups/tsudev-rg/providers/Microsoft.ServiceNetworking/trafficControllers/tsudev-agfc-alb'
+    alb.networking.azure.io/alb-frontend: 'test-frontend'
+  name: ingress-01
+  namespace: default
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: email-svc  # Directs to email-svc
+            port:
+              number: 80
+        path: /email
+        pathType: Exact
+  - http:
+      paths:
+      - backend:
+          service:
+            name: email-svc  # Directs to email-svc
+            port:
+              number: 80
+        path: /nginx-svc(/|$)(.*)
+        pathType: Exact

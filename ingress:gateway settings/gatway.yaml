@@ -1,0 +1,24 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: gateway-01
+  namespace: default
+  annotations:
+    alb.networking.azure.io/alb-id: '/subscriptions/340f9fe4-89c3-48fa-9e10-bf2ef657e272/resourcegroups/tsudev-rg/providers/Microsoft.ServiceNetworking/trafficControllers/tsudev-agfc-alb'
+spec:
+  gatewayClassName: azure-alb-external
+  listeners:
+  - name: http-listener
+    port: 80
+    protocol: HTTP
+    allowedRoutes:
+      namespaces:
+        from: Same
+  addresses:
+  - type: alb.networking.azure.io/alb-frontend
+    value: 'test-frontend'
+
+#RESOURCE_NAME='tsudev-agfc-alb'
+#FRONTEND_NAME='test-frontend'
+#RESOURCE_ID='/subscriptions/340f9fe4-89c3-48fa-9e10-bf2ef657e272/resourcegroups/tsudev-rg/providers/Microsoft.ServiceNetworking/trafficControllers/tsudev-agfc-alb'
+#RESOURCE_GROUP='tsudev-rg'
